@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react'
-import { Mail, Phone, MapPin, Send, Github, Linkedin } from 'lucide-react'
+import { Mail, Phone, MapPin, Send, Github, Linkedin, ExternalLink } from 'lucide-react'
 import { useLanguage } from '../i18n/LanguageContext'
 
 export function Contact() {
@@ -29,67 +29,78 @@ export function Contact() {
   }
 
   return (
-    <section className="py-20 bg-gray-50 dark:bg-[#0f0f1a]">
+    <section className="py-20 bg-[#0f1221]">
       <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-4xl font-bold text-[#1a1a2e] dark:text-white mb-4 text-center">{t('contact.title')}</h2>
-        <p className="text-gray-600 dark:text-gray-400 text-center mb-12 max-w-2xl mx-auto">{t('contact.subtitle')}</p>
+        <h2 className="text-5xl md:text-6xl font-display font-bold text-white mb-4 text-center">
+          {t('contact.title')}
+        </h2>
+        <p className="text-white/60 text-center mb-12 max-w-2xl mx-auto">{t('contact.subtitle')}</p>
 
         <div className="grid md:grid-cols-2 gap-10">
           <div className="space-y-6">
-            <div className="bg-white dark:bg-[#1e1e2e] rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700">
-              <h3 className="text-xl font-bold text-[#1a1a2e] dark:text-white mb-6">{t('contact.infoTitle')}</h3>
+            <div className="bg-[#141a2e] rounded-2xl p-6 shadow-lg border border-[#1e2438]">
+              <h3 className="text-xl font-display font-bold text-white mb-6">{t('contact.infoTitle')}</h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#e94560]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Mail size={20} className="text-[#e94560]" />
+                  <div className="w-12 h-12 bg-[#ff4d6d]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Mail size={20} className="text-[#ff4d6d]" />
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">{t('contact.email')}</p>
-                    <p className="text-[#1a1a2e] dark:text-white font-medium">alumne@emtgranollers.cat</p>
+                    <p className="text-sm text-white/50">{t('contact.email')}</p>
+                    <p className="text-white font-medium">alumne@emtgranollers.cat</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#e94560]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MapPin size={20} className="text-[#e94560]" />
+                  <div className="w-12 h-12 bg-[#ff4d6d]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <MapPin size={20} className="text-[#ff4d6d]" />
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">{t('contact.location')}</p>
-                    <p className="text-[#1a1a2e] dark:text-white font-medium">Carrer de Sant Oleguer, 1<br />08401 Granollers, Barcelona</p>
+                    <p className="text-sm text-white/50">{t('contact.location')}</p>
+                    <p className="text-white font-medium">Carrer de Sant Oleguer, 1<br />08401 Granollers, Barcelona</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#e94560]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Phone size={20} className="text-[#e94560]" />
+                  <div className="w-12 h-12 bg-[#ff4d6d]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Phone size={20} className="text-[#ff4d6d]" />
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">{t('contact.phone')}</p>
-                    <p className="text-[#1a1a2e] dark:text-white font-medium">+34 938 70 40 40</p>
+                    <p className="text-sm text-white/50">{t('contact.phone')}</p>
+                    <p className="text-white font-medium">+34 938 70 40 40</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white dark:bg-[#1e1e2e] rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700">
-              <h3 className="text-xl font-bold text-[#1a1a2e] dark:text-white mb-6">{t('contact.followMe')}</h3>
+            {/* Big Red Email Button */}
+            <a 
+              href="mailto:alumne@emtgranollers.cat"
+              className="flex items-center justify-center gap-3 w-full bg-[#ff4d6d] text-white py-4 px-6 rounded-xl font-medium hover:bg-[#ff5a6e] transition-all shadow-lg shadow-[#ff4d6d]/30"
+            >
+              <ExternalLink size={20} />
+              Enviar email directe
+            </a>
+
+            <div className="bg-[#141a2e] rounded-2xl p-6 shadow-lg border border-[#1e2438]">
+              <h3 className="text-xl font-display font-bold text-white mb-6">{t('contact.followMe')}</h3>
               <div className="flex gap-4">
-                <a href="#" className="w-12 h-12 bg-[#1a1a2e] dark:bg-[#2a2a3e] rounded-xl flex items-center justify-center text-white hover:bg-[#e94560] transition-colors">
+                <a href="#" className="w-12 h-12 bg-[#0f1221] rounded-xl flex items-center justify-center text-white hover:bg-[#ff4d6d] transition-colors border border-[#1e2438]">
                   <Github size={20} />
                 </a>
-                <a href="#" className="w-12 h-12 bg-[#1a1a2e] dark:bg-[#2a2a3e] rounded-xl flex items-center justify-center text-white hover:bg-[#e94560] transition-colors">
+                <a href="#" className="w-12 h-12 bg-[#0f1221] rounded-xl flex items-center justify-center text-white hover:bg-[#ff4d6d] transition-colors border border-[#1e2438]">
                   <Linkedin size={20} />
                 </a>
               </div>
             </div>
           </div>
 
-          <div className="bg-white dark:bg-[#1e1e2e] rounded-2xl p-8 shadow-lg border border-gray-100 dark:border-gray-700">
+          <div className="bg-[#141a2e] rounded-2xl p-8 shadow-lg border border-[#1e2438]">
             {submitted ? (
               <div className="text-center py-12">
-                <div className="w-16 h-16 bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Send size={32} className="text-emerald-600 dark:text-emerald-400" />
+                <div className="w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Send size={32} className="text-emerald-500" />
                 </div>
-                <h3 className="text-xl font-bold text-[#1a1a2e] dark:text-white mb-2">{t('contact.messageSent')}</h3>
-                <p className="text-gray-600 dark:text-gray-400">{t('contact.messageSentDesc')}</p>
+                <h3 className="text-xl font-display font-bold text-white mb-2">{t('contact.messageSent')}</h3>
+                <p className="text-white/60">{t('contact.messageSentDesc')}</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
@@ -98,22 +109,22 @@ export function Contact() {
                 <input type="hidden" name="_captcha" value="false" />
                 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{t('contact.name')}</label>
-                  <input type="text" name="name" required className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-[#2a2a3e] text-[#1a1a2e] dark:text-white focus:ring-2 focus:ring-[#e94560] focus:border-transparent" />
+                  <label className="block text-sm font-medium text-white/80 mb-1">{t('contact.name')} *</label>
+                  <input type="text" name="name" required className="w-full px-4 py-3 border border-[#1e2438] rounded-xl bg-[#0f1221] text-white placeholder-white/30 focus:ring-2 focus:ring-[#ff4d6d] focus:border-transparent" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
-                  <input type="email" name="email" required className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-[#2a2a3e] text-[#1a1a2e] dark:text-white focus:ring-2 focus:ring-[#e94560] focus:border-transparent" />
+                  <label className="block text-sm font-medium text-white/80 mb-1">Email *</label>
+                  <input type="email" name="email" required className="w-full px-4 py-3 border border-[#1e2438] rounded-xl bg-[#0f1221] text-white placeholder-white/30 focus:ring-2 focus:ring-[#ff4d6d] focus:border-transparent" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{t('contact.subject')}</label>
-                  <input type="text" name="subject" required className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-[#2a2a3e] text-[#1a1a2e] dark:text-white focus:ring-2 focus:ring-[#e94560] focus:border-transparent" />
+                  <label className="block text-sm font-medium text-white/80 mb-1">{t('contact.subject')} *</label>
+                  <input type="text" name="subject" required className="w-full px-4 py-3 border border-[#1e2438] rounded-xl bg-[#0f1221] text-white placeholder-white/30 focus:ring-2 focus:ring-[#ff4d6d] focus:border-transparent" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{t('contact.message')}</label>
-                  <textarea name="message" rows={5} required className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-[#2a2a3e] text-[#1a1a2e] dark:text-white focus:ring-2 focus:ring-[#e94560] focus:border-transparent resize-none" />
+                  <label className="block text-sm font-medium text-white/80 mb-1">{t('contact.message')} *</label>
+                  <textarea name="message" rows={5} required className="w-full px-4 py-3 border border-[#1e2438] rounded-xl bg-[#0f1221] text-white placeholder-white/30 focus:ring-2 focus:ring-[#ff4d6d] focus:border-transparent resize-none" />
                 </div>
-                <button type="submit" disabled={loading} className="w-full bg-gradient-to-r from-[#e94560] to-[#0f3460] text-white py-3 px-6 rounded-lg font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2 disabled:opacity-50">
+                <button type="submit" disabled={loading} className="w-full bg-[#ff4d6d] text-white py-4 px-6 rounded-xl font-medium hover:bg-[#ff5a6e] transition-all flex items-center justify-center gap-2 disabled:opacity-50 shadow-lg shadow-[#ff4d6d]/30">
                   <Send size={18} />
                   {loading ? t('contact.sending') : t('contact.submit')}
                 </button>

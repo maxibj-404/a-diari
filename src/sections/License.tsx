@@ -1,4 +1,4 @@
-import { Award, Download, ExternalLink, Bike, Shield, Clock } from 'lucide-react'
+import { Award, Download, ExternalLink, Bike, Shield, Clock, Info } from 'lucide-react'
 import { useLanguage } from '../i18n/LanguageContext'
 import { ClickableImage } from '../components/ImageLightbox'
 import { useLightbox } from '../components/LightboxProvider'
@@ -8,42 +8,75 @@ export function License() {
   const { openLightbox } = useLightbox()
 
   return (
-    <section className="py-20 bg-white dark:bg-[#0f0f1a]">
+    <section className="py-20 bg-[#0f1221]">
       <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-4xl font-bold text-[#1a1a2e] dark:text-white mb-4 text-center">{t('license.title')}</h2>
-        <p className="text-gray-600 dark:text-gray-400 text-center mb-12 max-w-2xl mx-auto">{t('license.subtitle')}</p>
+        <h2 className="text-5xl md:text-6xl font-display font-bold text-white mb-4 text-center">
+          {t('license.title')}
+        </h2>
+        <p className="text-white/60 text-center mb-12 max-w-2xl mx-auto">{t('license.subtitle')}</p>
+
+        {/* Creative Commons Card */}
+        <div className="bg-gradient-to-br from-[#ff4d6d] to-[#ff6b7a] rounded-2xl p-8 shadow-xl mb-10">
+          <div className="flex items-center justify-center gap-8">
+            <div className="text-white text-center">
+              <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span className="text-3xl font-bold">BY</span>
+              </div>
+              <p className="text-sm font-medium">Atribució</p>
+            </div>
+            <div className="text-white text-center">
+              <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span className="text-3xl font-bold">NC</span>
+              </div>
+              <p className="text-sm font-medium">No Comercial</p>
+            </div>
+          </div>
+          <div className="text-center mt-6">
+            <p className="text-white/90 text-lg">Creative Commons BY-NC 4.0</p>
+            <a 
+              href="https://creativecommons.org/licenses/by-nc/4.0/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mt-3 text-white hover:underline"
+            >
+              <Info size={16} />
+              Més informació
+              <ExternalLink size={14} />
+            </a>
+          </div>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div className="order-2 md:order-1">
-            <div className="bg-gradient-to-br from-[#1a1a2e] to-[#0f3460] rounded-2xl p-8 shadow-xl">
+            <div className="bg-[#141a2e] rounded-2xl p-8 shadow-xl border border-[#1e2438]">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-14 h-14 bg-[#e94560] rounded-xl flex items-center justify-center">
+                <div className="w-14 h-14 bg-[#ff4d6d] rounded-xl flex items-center justify-center">
                   <Award size={28} className="text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-white">{t('license.type')}</h3>
+                  <h3 className="text-2xl font-display font-bold text-white">{t('license.type')}</h3>
                   <p className="text-white/60">B - Cotxe</p>
                 </div>
               </div>
               
               <div className="space-y-4">
                 <div className="flex items-start gap-3 text-white/80">
-                  <Shield size={18} className="text-[#e94560] mt-1 flex-shrink-0" />
+                  <Shield size={18} className="text-[#ff4d6d] mt-1 flex-shrink-0" />
                   <p>{t('license.desc1')}</p>
                 </div>
                 <div className="flex items-start gap-3 text-white/80">
-                  <Clock size={18} className="text-[#e94560] mt-1 flex-shrink-0" />
+                  <Clock size={18} className="text-[#ff4d6d] mt-1 flex-shrink-0" />
                   <p>{t('license.desc2')}</p>
                 </div>
                 <div className="flex items-start gap-3 text-white/80">
-                  <Bike size={18} className="text-[#e94560] mt-1 flex-shrink-0" />
+                  <Bike size={18} className="text-[#ff4d6d] mt-1 flex-shrink-0" />
                   <p>{t('license.desc3')}</p>
                 </div>
               </div>
 
               <div className="mt-6 pt-6 border-t border-white/20">
                 <div className="flex gap-3">
-                  <button className="flex items-center gap-2 px-4 py-2 bg-[#e94560] text-white rounded-lg font-medium hover:bg-[#d13a54] transition-colors">
+                  <button className="flex items-center gap-2 px-4 py-2 bg-[#ff4d6d] text-white rounded-lg font-medium hover:bg-[#ff5a6e] transition-colors">
                     <Download size={18} />
                     {t('license.download')}
                   </button>

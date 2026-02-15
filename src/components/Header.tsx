@@ -48,7 +48,7 @@ export default function Header({ currentPage, onPageChange }: HeaderProps) {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-[#0f1221]/95 backdrop-blur-md shadow-lg' 
+        ? 'bg-[#0f1221]/98 backdrop-blur-md shadow-lg' 
         : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -129,7 +129,7 @@ export default function Header({ currentPage, onPageChange }: HeaderProps) {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-[#0f1221]/95 backdrop-blur-md border-t border-white/10">
+        <div className="lg:hidden bg-[#0f1221]/98 backdrop-blur-md border-t border-white/10">
           <div className="px-4 py-4 space-y-2">
             {navItems.map((item) => (
               <button 
