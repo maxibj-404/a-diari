@@ -64,13 +64,16 @@ export default function Header({ currentPage, onPageChange }: HeaderProps) {
               <button 
                 key={item.id} 
                 onClick={() => handleNavClick(item.id)} 
-                className={`font-label text-sm font-medium tracking-wide transition-colors ${
+                className={`font-label text-sm font-medium tracking-wide transition-all duration-300 relative ${
                   currentPage === item.id 
                     ? 'text-[#ff4d6d]' 
                     : 'text-white/80 hover:text-white'
                 }`}
               >
                 {item.label}
+                {currentPage === item.id && (
+                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#ff4d6d] rounded-full" />
+                )}
               </button>
             ))}
           </nav>

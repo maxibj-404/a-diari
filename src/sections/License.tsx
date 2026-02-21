@@ -15,6 +15,22 @@ export function License() {
         </h2>
         <p className="text-white/60 text-center mb-12 max-w-2xl mx-auto">{t('license.subtitle')}</p>
 
+        {/* Big License Photo at Top */}
+        <div className="mb-10">
+          <div 
+            className="relative group cursor-pointer rounded-2xl overflow-hidden shadow-2xl" 
+            onClick={() => openLightbox('/licencia.jpg', t('license.title'))}
+          >
+            <ClickableImage 
+              src="/licencia.jpg" 
+              alt={t('license.title')} 
+              className="w-full h-[400px] md:h-[500px] object-cover" 
+              onOpen={openLightbox} 
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0f1221]/60 to-transparent" />
+          </div>
+        </div>
+
         {/* Creative Commons Card */}
         <div className="bg-gradient-to-br from-[#ff4d6d] to-[#ff6b7a] rounded-2xl p-8 shadow-xl mb-10">
           <div className="flex items-center justify-center gap-8">
@@ -46,52 +62,43 @@ export function License() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-10 items-center">
-          <div className="order-2 md:order-1">
-            <div className="bg-[#141a2e] rounded-2xl p-8 shadow-xl border border-[#1e2438]">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-14 h-14 bg-[#ff4d6d] rounded-xl flex items-center justify-center">
-                  <Award size={28} className="text-white" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-display font-bold text-white">{t('license.type')}</h3>
-                  <p className="text-white/60">B - Cotxe</p>
-                </div>
-              </div>
-              
-              <div className="space-y-4">
-                <div className="flex items-start gap-3 text-white/80">
-                  <Shield size={18} className="text-[#ff4d6d] mt-1 flex-shrink-0" />
-                  <p>{t('license.desc1')}</p>
-                </div>
-                <div className="flex items-start gap-3 text-white/80">
-                  <Clock size={18} className="text-[#ff4d6d] mt-1 flex-shrink-0" />
-                  <p>{t('license.desc2')}</p>
-                </div>
-                <div className="flex items-start gap-3 text-white/80">
-                  <Bike size={18} className="text-[#ff4d6d] mt-1 flex-shrink-0" />
-                  <p>{t('license.desc3')}</p>
-                </div>
-              </div>
-
-              <div className="mt-6 pt-6 border-t border-white/20">
-                <div className="flex gap-3">
-                  <button className="flex items-center gap-2 px-4 py-2 bg-[#ff4d6d] text-white rounded-lg font-medium hover:bg-[#ff5a6e] transition-colors">
-                    <Download size={18} />
-                    {t('license.download')}
-                  </button>
-                  <button className="flex items-center gap-2 px-4 py-2 bg-white/10 text-white rounded-lg font-medium hover:bg-white/20 transition-colors">
-                    <ExternalLink size={18} />
-                    {t('license.verify')}
-                  </button>
-                </div>
-              </div>
+        {/* License Info Card */}
+        <div className="bg-[#141a2e] rounded-2xl p-8 shadow-xl border border-[#1e2438]">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-14 h-14 bg-[#ff4d6d] rounded-xl flex items-center justify-center">
+              <Award size={28} className="text-white" />
+            </div>
+            <div>
+              <h3 className="text-2xl font-display font-bold text-white">{t('license.type')}</h3>
+              <p className="text-white/60">B - Cotxe</p>
+            </div>
+          </div>
+          
+          <div className="space-y-4">
+            <div className="flex items-start gap-3 text-white/80">
+              <Shield size={18} className="text-[#ff4d6d] mt-1 flex-shrink-0" />
+              <p>{t('license.desc1')}</p>
+            </div>
+            <div className="flex items-start gap-3 text-white/80">
+              <Clock size={18} className="text-[#ff4d6d] mt-1 flex-shrink-0" />
+              <p>{t('license.desc2')}</p>
+            </div>
+            <div className="flex items-start gap-3 text-white/80">
+              <Bike size={18} className="text-[#ff4d6d] mt-1 flex-shrink-0" />
+              <p>{t('license.desc3')}</p>
             </div>
           </div>
 
-          <div className="order-1 md:order-2">
-            <div className="relative group cursor-pointer rounded-2xl overflow-hidden shadow-xl" onClick={() => openLightbox('/licencia.jpg', t('license.title'))}>
-              <ClickableImage src="/licencia.jpg" alt={t('license.title')} className="w-full h-80 object-cover" onOpen={openLightbox} />
+          <div className="mt-6 pt-6 border-t border-white/20">
+            <div className="flex gap-3">
+              <button className="flex items-center gap-2 px-4 py-2 bg-[#ff4d6d] text-white rounded-lg font-medium hover:bg-[#ff5a6e] transition-colors">
+                <Download size={18} />
+                {t('license.download')}
+              </button>
+              <button className="flex items-center gap-2 px-4 py-2 bg-white/10 text-white rounded-lg font-medium hover:bg-white/20 transition-colors">
+                <ExternalLink size={18} />
+                {t('license.verify')}
+              </button>
             </div>
           </div>
         </div>
