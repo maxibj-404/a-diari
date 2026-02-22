@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
-import { Menu, X, Sun, Moon, Globe } from 'lucide-react'
+import { Menu, X, Globe } from 'lucide-react'
 import { useLanguage } from '../i18n/LanguageContext'
-import { useTheme } from './ThemeProvider'
 
 interface HeaderProps {
   currentPage: string
@@ -20,7 +19,6 @@ export default function Header({ currentPage, onPageChange }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isLangOpen, setIsLangOpen] = useState(false)
   const { t, language, setLanguage } = useLanguage()
-  const { isDark, toggleTheme } = useTheme()
 
   const navItems = [
     { id: 'home', label: 'DIARI D\'APRENENTATGE' },
@@ -110,14 +108,6 @@ export default function Header({ currentPage, onPageChange }: HeaderProps) {
                 </div>
               )}
             </div>
-
-            {/* Theme Toggle */}
-            <button 
-              onClick={toggleTheme} 
-              className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
-            >
-              {isDark ? <Sun size={20} className="text-white" /> : <Moon size={20} className="text-white" />}
-            </button>
 
             {/* Mobile Menu Button */}
             <button 
