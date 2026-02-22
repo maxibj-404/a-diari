@@ -5,6 +5,7 @@ import { useLightbox } from '../components/LightboxProvider'
 import { ClickableImage } from '../components/ImageLightbox'
 import { Comments } from '../components/Comments'
 import { useTheme } from '../components/ThemeProvider'
+import { ScrollAnimation } from '../components/ScrollAnimation'
 
 interface Piece {
   id: number
