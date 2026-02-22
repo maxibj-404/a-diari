@@ -6,18 +6,16 @@
 
 @layer base {
   :root {
-    /* Deep navy / dark blue background */
+    /* Dark mode (default) */
     --background: 222 47% 6%;
     --foreground: 210 40% 98%;
     
-    /* Slightly lighter dark for cards */
     --card: 222 47% 10%;
     --card-foreground: 210 40% 98%;
     
     --popover: 222 47% 10%;
     --popover-foreground: 210 40% 98%;
     
-    /* Coral / pink-red accent */
     --primary: 350 85% 65%;
     --primary-foreground: 0 0% 100%;
     
@@ -38,6 +36,36 @@
     --ring: 350 85% 65%;
     
     --radius: 0.75rem;
+  }
+
+  .light {
+    --background: 210 20% 98%;
+    --foreground: 222 47% 10%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 10%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 10%;
+    
+    --primary: 350 85% 65%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 210 20% 95%;
+    --secondary-foreground: 222 47% 10%;
+    
+    --muted: 210 20% 92%;
+    --muted-foreground: 215 16% 47%;
+    
+    --accent: 350 85% 65%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 214 14% 85%;
+    --input: 214 14% 85%;
+    --ring: 350 85% 65%;
   }
 }
 
@@ -65,58 +93,69 @@
   .font-display {
     font-family: 'Playfair Display', serif;
   }
-  
+   
   .font-body {
     font-family: 'Inter', sans-serif;
   }
-  
+   
   .font-label {
     font-family: 'Space Grotesk', sans-serif;
   }
-  
+   
   .bg-subtle-gradient {
     background: linear-gradient(180deg, #0f1221 0%, #141a2e 100%);
   }
 
-  .dark .bg-subtle-gradient {
-    background: linear-gradient(180deg, #0f1221 0%, #141a2e 100%);
+  .light .bg-subtle-gradient {
+    background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
   }
-  
+   
   .bg-dark-gradient {
     background: linear-gradient(135deg, #0f1221 0%, #141a2e 100%);
   }
-  
+
+  .light .bg-dark-gradient {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  }
+   
   .text-gradient {
     background: linear-gradient(135deg, #ffffff 0%, #ff4d6d 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  
+
+  .light .text-gradient {
+    background: linear-gradient(135deg, #1a1a2e 0%, #ff4d6d 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+   
   .card-glow {
     box-shadow: 0 0 40px -10px rgba(255, 77, 109, 0.15);
   }
-  
+   
   .card-glow:hover {
     box-shadow: 0 0 60px -10px rgba(255, 77, 109, 0.25);
   }
-  
+   
   /* Enhanced card hover effect */
   .card-hover {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
+   
   .card-hover:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px -15px rgba(255, 77, 109, 0.3);
   }
-  
+   
   /* Button shine effect */
   .btn-shine {
     position: relative;
     overflow: hidden;
   }
-  
+   
   .btn-shine::after {
     content: '';
     position: absolute;
@@ -132,11 +171,11 @@
     );
     transition: left 0.5s;
   }
-  
+   
   .btn-shine:hover::after {
     left: 100%;
   }
-  
+   
   /* Text shine animation */
   .text-shine {
     background: linear-gradient(
@@ -148,12 +187,16 @@
     background-size: 200% 100%;
     animation: shine 3s ease-in-out infinite;
   }
-  
+   
   /* Glass effect */
   .glass {
     background: rgba(20, 26, 46, 0.7);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+  }
+
+  .light .glass {
+    background: rgba(255, 255, 255, 0.8);
   }
 }
 
@@ -161,7 +204,7 @@
   .animate-fade-up {
     animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
-  
+   
   .animate-fade-in {
     animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
@@ -169,16 +212,16 @@
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
-  
+   
   .animate-shimmer {
     background-size: 200% 100%;
     animation: shimmer 3s ease-in-out infinite;
   }
-  
+   
   .animate-pulse-slow {
     animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
-  
+   
   .animate-gradient {
     background-size: 300% 300%;
     animation: gradient 8s ease infinite;
