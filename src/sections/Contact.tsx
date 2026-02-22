@@ -1,9 +1,11 @@
 import { useState, type FormEvent } from 'react'
 import { Mail, Phone, MapPin, Send, Github, Linkedin, ExternalLink } from 'lucide-react'
 import { useLanguage } from '../i18n/LanguageContext'
+import { useTheme } from '../components/ThemeProvider'
 
 export function Contact() {
   const { t } = useLanguage()
+  const { isDark } = useTheme()
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
 
@@ -29,12 +31,12 @@ export function Contact() {
   }
 
   return (
-    <section className="py-20 bg-[#0f1221]">
+    <section className={`py-20 ${isDark ? 'bg-[#0f1221]' : 'bg-gray-50'}`}>
       <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-5xl md:text-6xl font-display font-bold text-white mb-4 text-center">
+        <h2 className={`text-5xl md:text-6xl font-display font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-4 text-center`}>
           {t('contact.title')}
         </h2>
-        <p className="text-white/60 text-center mb-12 max-w-2xl mx-auto">{t('contact.subtitle')}</p>
+        <p className={`${isDark ? 'text-white/60' : 'text-gray-500'} text-center mb-12 max-w-2xl mx-auto`}>{t('contact.subtitle')}</p>
 
         <div className="grid md:grid-cols-2 gap-10">
           <div className="space-y-6">

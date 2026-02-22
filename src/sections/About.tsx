@@ -3,10 +3,12 @@ import { Wrench, Cpu, MapPin, GraduationCap, Calendar, PenTool, Ruler, Cog, Code
 import { useLanguage } from '../i18n/LanguageContext'
 import { ClickableImage } from '../components/ImageLightbox'
 import { useLightbox } from '../components/LightboxProvider'
+import { useTheme } from '../components/ThemeProvider'
 
 export function About() {
   const { t } = useLanguage()
   const { openLightbox } = useLightbox()
+  const { isDark } = useTheme()
   const [activeTab, setActiveTab] = useState<'mechanical' | 'digital'>('mechanical')
 
   const mechanicalSkills = ['Torno', 'Fresadora', 'Croquis', 'CNC', 'Metrologia']
@@ -22,7 +24,7 @@ export function About() {
   ]
 
   return (
-    <section className="py-20 bg-[#0f1221]">
+    <section className={`py-20 ${isDark ? 'bg-[#0f1221]' : 'bg-gray-50'}`}>
       <div className="max-w-6xl mx-auto px-6">
         {/* Badge */}
         <div className="flex justify-center mb-6">
@@ -32,18 +34,18 @@ export function About() {
         </div>
 
         {/* Title */}
-        <h2 className="text-5xl md:text-6xl font-display font-bold text-white mb-12 text-center">
+        <h2 className={`text-5xl md:text-6xl font-display font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-12 text-center`}>
           {t('about.title')}
         </h2>
 
         <div className="flex justify-center mb-10">
-          <div className="inline-flex bg-[#141a2e] p-1 rounded-full border border-[#1e2438]">
+          <div className={`inline-flex p-1 rounded-full ${isDark ? 'bg-[#141a2e]' : 'bg-white'} border ${isDark ? 'border-[#1e2438]' : 'border-gray-200'}`}>
             <button 
               onClick={() => setActiveTab('mechanical')} 
               className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                 activeTab === 'mechanical' 
                   ? 'bg-[#ff4d6d] text-white shadow-lg shadow-[#ff4d6d]/30' 
-                  : 'text-white/60 hover:text-white hover:bg-white/5'
+                  : isDark ? 'text-white/60 hover:text-white hover:bg-white/5' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
               }`}
             >
               <Wrench size={18} /> {t('about.tabs.mechanical')}
@@ -53,7 +55,7 @@ export function About() {
               className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                 activeTab === 'digital' 
                   ? 'bg-[#ff4d6d] text-white shadow-lg shadow-[#ff4d6d]/30' 
-                  : 'text-white/60 hover:text-white hover:bg-white/5'
+                  : isDark ? 'text-white/60 hover:text-white hover:bg-white/5' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
               }`}
             >
               <Cpu size={18} /> {t('about.tabs.digital')}

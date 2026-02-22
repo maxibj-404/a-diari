@@ -4,6 +4,7 @@ import { useLanguage } from '../i18n/LanguageContext'
 import { useLightbox } from '../components/LightboxProvider'
 import { ClickableImage } from '../components/ImageLightbox'
 import { Comments } from '../components/Comments'
+import { useTheme } from '../components/ThemeProvider'
 
 interface Piece {
   id: number
@@ -35,6 +36,7 @@ const tagsList = ['Tots', 'Torno', 'Fresadora', 'Soldadura']
 export function BlogPosts() {
   const { t, language } = useLanguage()
   const { openLightbox } = useLightbox()
+  const { isDark } = useTheme()
   const [selectedTag, setSelectedTag] = useState('Tots')
   const [expandedId, setExpandedId] = useState<number | null>(null)
 
@@ -44,14 +46,14 @@ export function BlogPosts() {
   const getDesc = (p: Piece) => language === 'ca' ? p.description : language === 'es' ? p.descriptionES : language === 'en' ? p.descriptionEN : p.descriptionFR
 
   return (
-    <section className="py-20 bg-[#0f1221]">
+    <section className={`py-20 ${isDark ? 'bg-[#0f1221]' : 'bg-gray-50'}`}>
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <span className="inline-block px-4 py-1.5 bg-[#ff4d6d]/10 text-[#ff4d6d] text-xs font-label font-medium rounded-full tracking-wider mb-4">
+          <span className={`inline-block px-4 py-1.5 ${isDark ? 'bg-[#ff4d6d]/10' : 'bg-[#ff4d6d]/10'} text-[#ff4d6d] text-xs font-label font-medium rounded-full tracking-wider mb-4`}>
             ARXIU
           </span>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-4">
+          <h2 className={`text-4xl md:text-5xl font-display font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>
             {t('blog.title')}
           </h2>
         </div>
