@@ -1,11 +1,8 @@
 import { useLanguage } from '../i18n/LanguageContext'
-import { ClickableImage } from '../components/ImageLightbox'
-import { useLightbox } from '../components/LightboxProvider'
 import { useTheme } from '../components/ThemeProvider'
 
 export function License() {
   const { t } = useLanguage()
-  const { openLightbox } = useLightbox()
   const { isDark } = useTheme()
 
   return (
@@ -16,17 +13,13 @@ export function License() {
         </h2>
         <p className={`${isDark ? 'text-white/60' : 'text-gray-500'} text-center mb-12 max-w-2xl mx-auto`}>{t('license.subtitle')}</p>
 
-        {/* Big License Photo - Full Width */}
+        {/* Big License Photo - Fixed, no zoom */}
         <div className="mb-10">
-          <div 
-            className="relative group cursor-pointer rounded-2xl overflow-hidden shadow-2xl" 
-            onClick={() => openLightbox('/licencia.jpg', t('license.title'))}
-          >
-            <ClickableImage 
+          <div className="rounded-2xl overflow-hidden shadow-2xl">
+            <img 
               src="/licencia.jpg" 
               alt={t('license.title')} 
-              className="w-full h-[500px] md:h-[600px] object-contain bg-black" 
-              onOpen={openLightbox} 
+              className="w-full h-[500px] md:h-[600px] object-contain bg-black"
             />
           </div>
         </div>

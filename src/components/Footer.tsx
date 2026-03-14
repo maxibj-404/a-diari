@@ -1,12 +1,15 @@
 import { Github, Linkedin, Instagram, ArrowUp } from 'lucide-react'
+import { useTheme } from './ThemeProvider'
 
 export default function Footer() {
+  const { isDark } = useTheme()
+  
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   return (
-    <footer className="bg-dark-gradient text-white py-12">
+    <footer className={`py-12 ${isDark ? 'bg-dark-gradient text-white' : 'bg-gray-900 text-white'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
