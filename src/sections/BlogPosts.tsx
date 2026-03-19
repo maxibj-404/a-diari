@@ -80,7 +80,7 @@ export function BlogPosts() {
                       : isDark ? 'bg-[#141a2e] text-[#9aa0b3] hover:bg-[#ff4d6d]/10 hover:text-[#ff4d6d] border border-[#1e2438]' : 'bg-gray-200 text-gray-600 hover:bg-[#ff4d6d]/10 hover:text-[#ff4d6d] border border-gray-300'
                   }`}
                 >
-                  {tag === 'Tots' ? t('blog.all') : tag === 'Torno' ? t('blog.lathe') : tag === 'Fresadora' ? t('blog.milling') : tag === 'Soldadura' ? t('blog.welding') : tag === 'Manual' ? t('blog.manual') : 'Croquis'}
+                  {tag === 'Tots' ? t('blog.all') : tag === 'Torno' ? t('blog.lathe') : tag === 'Fresadora' ? t('blog.milling') : tag === 'Soldadura' ? t('blog.welding') : tag === 'Manual' ? t('blog.manual') : t('blog.croquis')}
                 </button>
               ))}
             </div>
