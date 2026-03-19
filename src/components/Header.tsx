@@ -24,6 +24,7 @@ export default function Header({ currentPage, onPageChange }: HeaderProps) {
 
   const navItems = [
     { id: 'home', label: 'DIARI D\'APRENENTATGE' },
+    { id: 'practices', label: 'PRÀCTIQUES' },
     { id: 'about', label: t('nav.about').toUpperCase() },
     { id: 'contact', label: t('nav.contact').toUpperCase() },
     { id: 'license', label: t('nav.license').toUpperCase() },

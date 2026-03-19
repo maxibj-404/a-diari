@@ -25,14 +25,9 @@ function AppContent() {
   const renderPage = () => {
     switch (currentPage) {
       case 'home':
-        return (
-          <>
-            <Hero />
-            <div id="blog">
-              <BlogPosts />
-            </div>
-          </>
-        )
+        return <Hero />
+      case 'practices':
+        return <BlogPosts />
       case 'about':
         return <About />
       case 'contact':
@@ -40,14 +35,7 @@ function AppContent() {
       case 'license':
         return <License />
       default:
-        return (
-          <>
-            <Hero />
-            <div id="blog">
-              <BlogPosts />
-            </div>
-          </>
-        )
+        return <Hero />
     }
   }
 
